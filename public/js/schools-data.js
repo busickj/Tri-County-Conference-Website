@@ -3,15 +3,16 @@
 // mshsaaId is the school's id in MSHSAA's directory (mshsaa.org/MySchool/?s=<id>),
 // used by scripts/import-mshsaa.js to pull each school's live schedule.
 //
-// `theme` primary colors are each school's official hex value. `accent` is
-// also the official secondary color, except where that secondary is white
-// - white has no contrast to serve as a UI highlight (borders/hover states),
-// so Blair Oaks and Boonville use black instead (Southern Boone keeps a
-// neutral gold accent, #d4a017, by request). Osage uses Aggie Maroon as
-// primary with Black/Gray from their official brand guide as accent/text
-// colors instead, via the optional `text`/`textMuted` overrides - no tan.
-// `font` is only set where a school's own site uses something distinctly
-// different from this site's base Inter - otherwise it inherits Inter.
+// `theme.primary` is each school's official hex value - it re-themes a
+// school's own page (school-init.js) and rings its logo in the school strip
+// (layout-init.js). `theme.accent` records each school's official secondary
+// color for reference; it isn't currently wired into the stylesheet, since
+// this site's own dark background and gold accent stay fixed site-wide
+// (several schools' accents are white or black, with no contrast against a
+// dark page). Osage uses Aggie Maroon as `primary`, its official brand
+// color - no tan. `font` is only set where a school's own site uses
+// something distinctly different from this site's base Barlow - otherwise
+// it inherits Barlow.
 const SCHOOLS = [
   { id: "blair-oaks", name: "Blair Oaks", mascot: "Falcons", abbr: "BO", website: "https://www.blairoaks.k12.mo.us/", logo: "images/logos/blair-oaks.webp", mshsaaId: 217, theme: { primary: "#007D41", accent: "#000000" } },
   { id: "boonville", name: "Boonville", mascot: "Pirates", abbr: "BV", website: "https://bhs.bpsk12.net/", logo: "images/logos/boonville.webp", mshsaaId: 16, theme: { primary: "#044FBC", accent: "#000000", font: "Roboto Slab" } },
@@ -19,7 +20,7 @@ const SCHOOLS = [
   { id: "eldon", name: "Eldon", mascot: "Mustangs", abbr: "EL", website: "https://eldonmustangs.org/eldon-high-school/", logo: "images/logos/eldon.webp", mshsaaId: 278, theme: { primary: "#41010E", accent: "#B1945B" } },
   { id: "fulton", name: "Fulton", mascot: "Hornets", abbr: "FU", website: "https://fhs.fulton58.org/", logo: "images/logos/fulton.webp", mshsaaId: 80, theme: { primary: "#000000", accent: "#FFCC02", font: "Poppins" } },
   { id: "hallsville", name: "Hallsville", mascot: "Indians", abbr: "HV", website: "https://www.hallsville.org/", logo: "images/logos/hallsville.webp", mshsaaId: 311, theme: { primary: "#4F2684", accent: "#D5C86E" } },
-  { id: "osage", name: "Osage", mascot: "Indians", abbr: "OS", website: "https://www.osageschools.org/", logo: "images/logos/osage.webp", mshsaaId: 152, theme: { primary: "#500000", accent: "#151514", text: "#151514", textMuted: "#3A3A3B", font: "Playfair Display" } },
+  { id: "osage", name: "Osage", mascot: "Indians", abbr: "OS", website: "https://www.osageschools.org/", logo: "images/logos/osage.webp", mshsaaId: 152, theme: { primary: "#500000", accent: "#151514", font: "Playfair Display" } },
   { id: "southern-boone", name: "Southern Boone", mascot: "Eagles", abbr: "SB", website: "https://www.ashland.k12.mo.us/o/high", logo: "images/logos/southern-boone.webp", mshsaaId: 2, theme: { primary: "#B50100", accent: "#d4a017" } }
 ];
 

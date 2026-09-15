@@ -35,7 +35,6 @@ function initAdminPanel() {
   populateSchoolSelect(document.getElementById("game-school"));
   populateSchoolSelect(document.getElementById("game-list-school"));
 
-  refreshNewsAdminList();
   refreshGameAdminListFromSelects();
 
   document.getElementById("game-list-school").addEventListener("change", refreshGameAdminListFromSelects);
@@ -44,52 +43,6 @@ function initAdminPanel() {
 
 function refreshGameAdminListFromSelects() {
   refreshGameAdminList(document.getElementById("game-list-school").value, document.getElementById("game-list-sport").value);
-}
-
-// --- News ---
-
-document.getElementById("news-form").addEventListener("submit", (e) => {
-  e.preventDefault();
-  const title = document.getElementById("news-title").value.trim();
-  const date = document.getElementById("news-date").value;
-  const author = document.getElementById("news-author").value.trim();
-  const image = document.getElementById("news-image").value.trim();
-  const body = document.getElementById("news-body").value.trim();
-  if (!title || !date) return;
-
-  db.ref("news").push({ title, date, author, image, body }).then(() => {
-    e.target.reset();
-    refreshNewsAdminList();
-  });
-});
-
-function refreshNewsAdminList() {
-  const container = document.getElementById("news-admin-list");
-  db.ref("news").orderByChild("date").once("value").then((snap) => {
-    const posts = [];
-    snap.forEach((child) => { posts.push(Object.assign({ id: child.key }, child.val())); });
-    posts.reverse();
-
-    if (posts.length === 0) {
-      container.innerHTML = '<p class="empty-state">No posts yet.</p>';
-      return;
-    }
-
-    container.innerHTML = posts
-      .map(
-        (p) => `<div class="admin-list-row card">
-          <span>${escapeHtml(p.title)} <span class="mascot">(${formatDate(p.date)})</span></span>
-          <button class="btn" data-delete-news="${p.id}">Delete</button>
-        </div>`
-      )
-      .join("");
-
-    container.querySelectorAll("[data-delete-news]").forEach((btn) => {
-      btn.addEventListener("click", () => {
-        db.ref(`news/${btn.dataset.deleteNews}`).remove().then(refreshNewsAdminList);
-      });
-    });
-  });
 }
 
 // --- Games / Schedule ---

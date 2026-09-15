@@ -17,17 +17,17 @@ function lighten(hex, amount) {
   return `#${[mix(r), mix(g), mix(b)].map((c) => c.toString(16).padStart(2, "0")).join("")}`;
 }
 
-// Re-themes the whole page to one school's real brand colors (sampled from
-// its logo - see the comment on SCHOOLS in schools-data.js) by overriding
-// the same CSS variables every other page uses, plus swapping in that
-// school's own site's heading font where one was worth borrowing.
+// Re-themes the page's header/hero/nav panels to one school's own primary
+// color (see the comment on SCHOOLS in schools-data.js), plus swapping in
+// that school's own site's heading font where one was worth borrowing.
+// Only --navy/--navy-2 are overridden here, not --gold or --text: several
+// schools' official accent/text colors are black or near-black, which would
+// vanish against this site's dark page background if used for the gold
+// accent or body text everywhere instead of just a school's own color block.
 function applySchoolTheme(theme) {
   if (!theme) return;
   document.documentElement.style.setProperty("--navy", theme.primary);
   document.documentElement.style.setProperty("--navy-2", lighten(theme.primary, 0.18));
-  document.documentElement.style.setProperty("--gold", theme.accent);
-  if (theme.text) document.documentElement.style.setProperty("--text", theme.text);
-  if (theme.textMuted) document.documentElement.style.setProperty("--text-muted", theme.textMuted);
 
   if (theme.font) {
     const link = document.createElement("link");

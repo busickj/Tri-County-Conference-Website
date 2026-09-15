@@ -124,32 +124,6 @@ function renderUpcomingGames(container, days) {
   });
 }
 
-function renderLatestNews(container, limit) {
-  db.ref("news").orderByChild("date").limitToLast(limit).once("value").then((snap) => {
-    const posts = [];
-    snap.forEach((child) => { posts.push(Object.assign({ id: child.key }, child.val())); });
-    posts.reverse();
-
-    if (posts.length === 0) {
-      container.innerHTML = '<p class="empty-state">No news posted yet.</p>';
-      return;
-    }
-
-    container.innerHTML = `<div class="news-list">${posts
-      .map(
-        (p) => `<div class="news-post">
-          <div class="news-thumb">${p.image ? `<img src="${escapeHtml(p.image)}" alt="">` : "TCC"}</div>
-          <div>
-            <h3>${escapeHtml(p.title)}</h3>
-            <div class="meta">${formatDate(p.date)}${p.author ? " · " + escapeHtml(p.author) : ""}</div>
-            <div class="body">${escapeHtml(p.body || "")}</div>
-          </div>
-        </div>`
-      )
-      .join("")}</div>`;
-  });
-}
-
 // sportId of "" (the "All Sports" option) shows every sport for the school.
 function renderScheduleTable(container, schoolId, sportId) {
   db.ref(`schedule/${schoolId}`).once("value").then((snap) => {

@@ -6,7 +6,7 @@
   if (!container) return;
   container.innerHTML = SCHOOLS.map(
     (s) => `<a href="school.html?id=${s.id}">
-      <span class="chip"><img src="${s.logo}" alt="${s.name} ${s.mascot} logo" loading="lazy"></span>
+      <span class="chip" style="--sw:${s.theme.primary}"><img src="${s.logo}" alt="${s.name} ${s.mascot} logo" loading="lazy"></span>
       <span class="label">${s.name}</span>
     </a>`
   ).join("");

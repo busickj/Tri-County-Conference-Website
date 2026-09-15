@@ -16,17 +16,6 @@
           "source": { ".validate": "newData.isString()" }
         }
       }
-    },
-    "news": {
-      ".read": true,
-      "$postId": {
-        ".write": "auth != null && (auth.token.email === 'busickj@osageschools.org' || auth.token.email === 'andybusick@gmail.com')",
-        "title": { ".validate": "newData.isString() && newData.val().length > 0 && newData.val().length <= 120" },
-        "body": { ".validate": "newData.isString() && newData.val().length <= 4000" },
-        "date": { ".validate": "newData.isString()" },
-        "author": { ".validate": "newData.isString() && newData.val().length <= 60" },
-        "image": { ".validate": "newData.isString() && newData.val().length <= 500" }
-      }
     }
   }
 }
