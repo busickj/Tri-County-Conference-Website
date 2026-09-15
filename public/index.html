@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tri-County Conference</title>
+<meta name="description" content="Schedules, standings, and news for the eight member schools of the Tri-County Conference: Blair Oaks, Boonville, California, Eldon, Fulton, Hallsville, Osage, and Southern Boone.">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Tri-County Conference">
+<meta property="og:url" content="https://tccmid-mo.web.app/">
+<meta property="og:title" content="Tri-County Conference">
+<meta property="og:description" content="Schedules, standings, and news for the eight member schools of the Tri-County Conference: Blair Oaks, Boonville, California, Eldon, Fulton, Hallsville, Osage, and Southern Boone.">
+<meta property="og:image" content="https://tccmid-mo.web.app/images/logo/tcc-logo-600.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Tri-County Conference">
+<meta name="twitter:description" content="Schedules, standings, and news for the eight member schools of the Tri-County Conference: Blair Oaks, Boonville, California, Eldon, Fulton, Hallsville, Osage, and Southern Boone.">
+<meta name="twitter:image" content="https://tccmid-mo.web.app/images/logo/tcc-logo-600.png">
+<link rel="icon" type="image/png" sizes="32x32" href="images/logo/tcc-logo-32.png">
+<link rel="apple-touch-icon" sizes="180x180" href="images/logo/tcc-logo-180.png">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-inner">
+    <div class="brand"><img src="images/logo/tcc-logo-96.png" alt="Tri-County Conference logo" class="brand-logo"> Tri-County Conference</div>
+    <nav class="main-nav">
+      <a href="index.html" class="active">Home</a>
+      <a href="schools.html">Schools</a>
+      <a href="schedule.html">Schedule</a>
+      <a href="standings.html">Standings</a>
+      <a href="news.html">News</a>
+      <a href="history.html">History</a>
+    </nav>
+  </div>
+</header>
+
+<div class="school-strip"><div class="school-strip-inner" id="school-strip"></div></div>
+
+<div class="hero">
+  <div class="hero-inner hero-flex">
+    <img src="images/logo/tcc-logo-600.png" alt="Tri-County Conference logo" class="hero-logo">
+    <div>
+      <h1>Tri-County Conference</h1>
+      <p>Schedules, standings, and news for our eight member schools.</p>
+    </div>
+  </div>
+</div>
+
+<main>
+  <div class="quick-links">
+    <a href="schools.html">Member Schools</a>
+    <a href="schedule.html">Game Schedule</a>
+    <a href="standings.html">Standings</a>
+    <a href="news.html">Conference News</a>
+    <a href="history.html">Conference History</a>
+  </div>
+
+  <div class="ribbon-title"><div class="ribbon-main">Upcoming Games</div><div class="ribbon-tail"></div></div>
+  <div id="upcoming-games" class="ticker">
+    <p class="empty-state">Loading&hellip;</p>
+  </div>
+
+  <div class="ribbon-title"><div class="ribbon-main">Latest News</div><div class="ribbon-tail"></div></div>
+  <div id="latest-news">
+    <p class="empty-state">Loading&hellip;</p>
+  </div>
+</main>
+
+<footer class="site-footer">Tri-County Conference &middot; <a href="admin.html">Admin</a></footer>
+
+<script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-database-compat.js"></script>
+<script src="js/firebase-config.js"></script>
+<script src="js/schools-data.js"></script>
+<script src="js/layout-init.js"></script>
+<script src="js/app.js"></script>
+<script src="js/home-init.js"></script>
+</body>
+</html>

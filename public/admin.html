@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Admin - Tri-County Conference</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="icon" type="image/png" sizes="32x32" href="images/logo/tcc-logo-32.png">
+<link rel="apple-touch-icon" sizes="180x180" href="images/logo/tcc-logo-180.png">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-inner">
+    <div class="brand"><img src="images/logo/tcc-logo-96.png" alt="Tri-County Conference logo" class="brand-logo"> Tri-County Conference</div>
+    <nav class="main-nav">
+      <a href="index.html">Home</a>
+      <a href="schools.html">Schools</a>
+      <a href="schedule.html">Schedule</a>
+      <a href="standings.html">Standings</a>
+      <a href="news.html">News</a>
+      <a href="history.html">History</a>
+    </nav>
+  </div>
+</header>
+
+<div class="school-strip"><div class="school-strip-inner" id="school-strip"></div></div>
+
+<main>
+  <h1 class="section-title">Admin</h1>
+
+  <div id="login-panel">
+    <form id="login-form" class="admin-form">
+      <input type="email" id="login-email" placeholder="Email" required>
+      <input type="password" id="login-password" placeholder="Password" required>
+      <button type="submit" class="btn">Sign In</button>
+      <p id="login-error" class="empty-state" style="display:none;"></p>
+    </form>
+  </div>
+
+  <div id="admin-panel" style="display:none;">
+    <p>Signed in as <strong id="admin-email"></strong> &middot; <button id="logout-btn" class="btn">Sign Out</button></p>
+
+    <h2 class="section-title">Add News Post</h2>
+    <form id="news-form" class="admin-form">
+      <input type="text" id="news-title" placeholder="Title" required>
+      <input type="date" id="news-date" required>
+      <input type="text" id="news-author" placeholder="Author (optional)">
+      <input type="url" id="news-image" placeholder="Image URL (optional)">
+      <textarea id="news-body" rows="4" placeholder="Body"></textarea>
+      <button type="submit" class="btn gold">Post</button>
+    </form>
+    <div id="news-admin-list"></div>
+
+    <h2 class="section-title">Add Game</h2>
+    <form id="game-form" class="admin-form">
+      <select id="game-school"></select>
+      <select id="game-sport"></select>
+      <input type="date" id="game-date" required>
+      <input type="time" id="game-time">
+      <input type="text" id="game-opponent" placeholder="Opponent" required>
+      <select id="game-homeaway">
+        <option value="home">Home</option>
+        <option value="away">Away</option>
+        <option value="neutral">Neutral site</option>
+      </select>
+      <input type="text" id="game-location" placeholder="Location">
+      <button type="submit" class="btn gold">Add Game</button>
+    </form>
+    <div class="controls">
+      <label for="game-list-school">View games for:</label>
+      <select id="game-list-school"></select>
+      <select id="game-list-sport"></select>
+    </div>
+    <p class="section-note">Standings are calculated automatically from conference games marked with a result below - set W/L/T on a game once it's been played.</p>
+    <div id="game-admin-list"></div>
+  </div>
+</main>
+
+<footer class="site-footer">Tri-County Conference</footer>
+
+<script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-database-compat.js"></script>
+<script src="js/firebase-config.js"></script>
+<script src="js/schools-data.js"></script>
+<script src="js/layout-init.js"></script>
+<script src="js/app.js"></script>
+<script src="js/admin.js"></script>
+</body>
+</html>

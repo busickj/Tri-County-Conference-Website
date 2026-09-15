@@ -1,0 +1,11 @@
+{
+  "name": "tri-county-conference",
+  "private": true,
+  "description": "Tri-County Conference website (static Firebase Hosting site)",
+  "scripts": {
+    "test": "node --test test/*.test.js"
+  },
+  "devDependencies": {
+    "cheerio": "^1.2.0"
+  }
+}

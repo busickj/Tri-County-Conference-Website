@@ -1,0 +1,32 @@
+{
+  "rules": {
+    "schedule": {
+      ".read": true,
+      "$schoolId": {
+        "$gameId": {
+          ".write": "auth != null && (auth.token.email === 'busickj@osageschools.org' || auth.token.email === 'andybusick@gmail.com')",
+          "sportId": { ".validate": "newData.isString()" },
+          "date": { ".validate": "newData.isString()" },
+          "time": { ".validate": "newData.isString()" },
+          "opponent": { ".validate": "newData.isString()" },
+          "homeAway": { ".validate": "newData.isString() && newData.val().matches(/^(home|away|neutral)$/)" },
+          "location": { ".validate": "newData.isString()" },
+          "result": { ".validate": "newData.isString() || newData.val() === null" },
+          "outcome": { ".validate": "(newData.isString() && newData.val().matches(/^(W|L|T)$/)) || newData.val() === null" },
+          "source": { ".validate": "newData.isString()" }
+        }
+      }
+    },
+    "news": {
+      ".read": true,
+      "$postId": {
+        ".write": "auth != null && (auth.token.email === 'busickj@osageschools.org' || auth.token.email === 'andybusick@gmail.com')",
+        "title": { ".validate": "newData.isString() && newData.val().length > 0 && newData.val().length <= 120" },
+        "body": { ".validate": "newData.isString() && newData.val().length <= 4000" },
+        "date": { ".validate": "newData.isString()" },
+        "author": { ".validate": "newData.isString() && newData.val().length <= 60" },
+        "image": { ".validate": "newData.isString() && newData.val().length <= 500" }
+      }
+    }
+  }
+}
