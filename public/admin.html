@@ -19,7 +19,6 @@
       <a href="schools.html">Schools</a>
       <a href="schedule.html">Schedule</a>
       <a href="standings.html">Standings</a>
-      <a href="news.html">News</a>
       <a href="history.html">History</a>
     </nav>
   </div>
@@ -41,17 +40,6 @@
 
   <div id="admin-panel" style="display:none;">
     <p>Signed in as <strong id="admin-email"></strong> &middot; <button id="logout-btn" class="btn">Sign Out</button></p>
-
-    <h2 class="section-title">Add News Post</h2>
-    <form id="news-form" class="admin-form">
-      <input type="text" id="news-title" placeholder="Title" required>
-      <input type="date" id="news-date" required>
-      <input type="text" id="news-author" placeholder="Author (optional)">
-      <input type="url" id="news-image" placeholder="Image URL (optional)">
-      <textarea id="news-body" rows="4" placeholder="Body"></textarea>
-      <button type="submit" class="btn gold">Post</button>
-    </form>
-    <div id="news-admin-list"></div>
 
     <h2 class="section-title">Add Game</h2>
     <form id="game-form" class="admin-form">
